@@ -1,0 +1,47 @@
+version: "3.4"
+services:
+        base:
+                build:
+                        context: .
+                        dockerfile: Dockerfile.base
+                container_name: nginx_base_image
+                image: nginx_demo_base
+                command: /bin/true
+
+        gw:
+                build:
+                        context: .
+                        dockerfile: Dockerfile.gw
+                hostname: gw
+                container_name: gw
+                image: nginx_demo_gw
+                privileged: true
+
+        mgm:
+                build:
+                        context: .
+                        dockerfile: Dockerfile.mgm
+                hostname: mgm
+                container_name: mgm
+                image: nginx_demo_mgm
+                privileged: true
+
+        fst:
+                build:
+                        context: .
+                        dockerfile: Dockerfile.fst
+                hostname: fst
+                container_name: fst
+                image: nginx_demo_fst
+                privileged: true
+                volumes:
+                        - ./web:/usr/share/nginx/html:ro
+
+        nginx_client:
+                build:
+                        context: .
+                        dockerfile: Dockerfile.client
+                image: nginx_demo_client
+                hostname: nginx_client
+                container_name: nginx_client
+                privileged: true
