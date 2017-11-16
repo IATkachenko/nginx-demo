@@ -1,2 +1,2 @@
 FROM nginx_demo_base
-COPY nginx/mgm.conf /etc/nginx/location.d/
+COPY nginx/mgm.conf /etc/nginx/server.d/

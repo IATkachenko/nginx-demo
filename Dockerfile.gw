@@ -1,5 +1,4 @@
 FROM nginx_demo_base
-COPY nginx/gw-internal.conf /etc/nginx/location.d/
-COPY nginx/gw-main.conf /etc/nginx/location.d/
+COPY nginx/gw.conf /etc/nginx/server.d/
 COPY suprevisor/tcpdump.ini /etc/supervisord.d/
 
