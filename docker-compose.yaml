@@ -24,7 +24,6 @@ services:
                 hostname: mgm
                 container_name: mgm
                 image: nginx_demo_mgm
-                privileged: true
 
         fst:
                 build:
@@ -33,7 +32,6 @@ services:
                 hostname: fst
                 container_name: fst
                 image: nginx_demo_fst
-                privileged: true
                 volumes:
                         - ./web:/usr/share/nginx/html:ro
 
@@ -44,4 +42,3 @@ services:
                 image: nginx_demo_client
                 hostname: nginx_client
                 container_name: nginx_client
-                privileged: true
